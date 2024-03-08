@@ -5,6 +5,7 @@ import com.avanes.vkTask.albums.POJO.Albums;
 import com.avanes.vkTask.albums.POJO.AlbumsPost;
 import com.google.gson.Gson;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
@@ -23,6 +24,7 @@ import static com.avanes.vkTask.constants.TaskConstants.*;
 @RequiredArgsConstructor
 public class AlbumService {
 
+    @Cacheable(cacheNames = "albumsById")
     public Albums getAlbum(Integer id) {
         StringBuilder builder = getData(ALBUMS_URL + "/" + id);
         Gson g = new Gson();
