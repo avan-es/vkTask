@@ -40,7 +40,7 @@ public class AlbumController {
     @PostMapping
     @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_ALBUMS')")
     @ResponseStatus(HttpStatus.CREATED)
-    public Album/*AlbumFull*/ addAlbum(
+    public AlbumFull addAlbum(
             @RequestBody Album album) {
         return albumService.addAlbum(album);
     }

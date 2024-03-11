@@ -8,7 +8,7 @@ public interface AlbumService {
 
     AlbumFull[] getAlbums();
 
-    Album addAlbum(Album album);
+    AlbumFull addAlbum(Album album);
 
     AlbumFull patchAlbum(Album album, Long id);
 
