@@ -5,7 +5,7 @@ package com.avanes.vkTask.albums.POJO;
 public enum AlbumMapper {
     INSTANT;
 
-    public AlbumsPost albumsToAlbumsPost (Albums albums) {
-        return new AlbumsPost(albums.getId(), albums.getTitle());
+    public Album albumsToAlbumsPost (AlbumFull albums) {
+        return new Album(albums.getUserId(), albums.getTitle());
     }
 }

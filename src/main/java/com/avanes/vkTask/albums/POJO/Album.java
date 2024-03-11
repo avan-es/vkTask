@@ -6,8 +6,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Albums {
-    private Integer userId;
-    private Integer id;
+public class Album {
+    private Long userId;
     private String title;
 }
