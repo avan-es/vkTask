@@ -1,4 +1,4 @@
-package com.avanes.vkTask.security;
+package com.avanes.vkTask.config.security;
 
 
 import org.springframework.context.annotation.Bean;

@@ -1,4 +1,4 @@
-package com.avanes.vkTask.users.entity;
+package com.avanes.vkTask.admin.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;

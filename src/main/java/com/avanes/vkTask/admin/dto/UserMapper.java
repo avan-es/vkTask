@@ -1,9 +1,7 @@
 package com.avanes.vkTask.admin.dto;
 
 import com.avanes.vkTask.constants.Roles;
-import com.avanes.vkTask.admin.dto.UserCreatDto;
-import com.avanes.vkTask.admin.dto.UserShortDto;
-import com.avanes.vkTask.users.entity.UserEntity;
+import com.avanes.vkTask.admin.entity.UserEntity;
 
 public enum UserMapper {
     INSTANT;

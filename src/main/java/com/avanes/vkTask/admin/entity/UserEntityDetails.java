@@ -1,4 +1,4 @@
-package com.avanes.vkTask.users.entity;
+package com.avanes.vkTask.admin.entity;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

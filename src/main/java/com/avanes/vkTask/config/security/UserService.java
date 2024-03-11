@@ -1,7 +1,7 @@
-package com.avanes.vkTask.security;
+package com.avanes.vkTask.config.security;
 
-import com.avanes.vkTask.users.entity.UserEntity;
-import com.avanes.vkTask.users.entity.UserEntityDetails;
+import com.avanes.vkTask.admin.entity.UserEntity;
+import com.avanes.vkTask.admin.entity.UserEntityDetails;
 import com.avanes.vkTask.admin.storage.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

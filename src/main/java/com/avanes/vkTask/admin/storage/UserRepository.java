@@ -1,6 +1,6 @@
 package com.avanes.vkTask.admin.storage;
 
-import com.avanes.vkTask.users.entity.UserEntity;
+import com.avanes.vkTask.admin.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

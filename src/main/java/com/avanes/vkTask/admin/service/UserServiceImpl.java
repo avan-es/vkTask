@@ -4,7 +4,7 @@ import com.avanes.vkTask.ApiError.exception.ConflictException;
 import com.avanes.vkTask.ApiError.exception.NotFoundException;
 import com.avanes.vkTask.admin.dto.UserCreatDto;
 import com.avanes.vkTask.admin.dto.UserShortDto;
-import com.avanes.vkTask.users.entity.UserEntity;
+import com.avanes.vkTask.admin.entity.UserEntity;
 import com.avanes.vkTask.admin.dto.UserMapper;
 import com.avanes.vkTask.admin.storage.UserRepository;
 import lombok.RequiredArgsConstructor;

@@ -1,10 +1,9 @@
 package com.avanes.vkTask.ApiError;
 
 
+import com.avanes.vkTask.ApiError.exception.ConflictException;
 import com.avanes.vkTask.ApiError.exception.NotFoundException;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.HttpRequestMethodNotSupportedException;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -17,66 +16,7 @@ import java.time.LocalDateTime;
 @RestControllerAdvice
 public class ErrorHandler {
 
-/*    @ExceptionHandler(ConstraintViolationException.class)
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ResponseBody
-    public ErrorResponse onConstraintViolationException(ConstraintViolationException e) {
-        return new ErrorResponse(HttpStatus.BAD_REQUEST,
-                "Невалидные данные.",
-                e.getMessage(),
-                LocalDateTime.now());
-    }*/
 
-/*    @ExceptionHandler(MethodArgumentNotValidException.class)
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ResponseBody
-    public ErrorResponse onMethodArgumentNotValidException(MethodArgumentNotValidException e) {
-        return new ErrorResponse(HttpStatus.BAD_REQUEST,
-                "Incorrectly made request (SQL).",
-                e.getMessage(),
-                LocalDateTime.now());
-    }*/
-
-    /*@ExceptionHandler(PSQLException.class)
-    @ResponseStatus(HttpStatus.CONFLICT)
-    @ResponseBody
-    public ErrorResponse onBusyEmail(PSQLException e) {
-        return new ErrorResponse(HttpStatus.CONFLICT,
-                "Incorrectly made request (SQL).",
-                e.getMessage(),
-                LocalDateTime.now());
-    }*/
-
-/*    @ExceptionHandler(ValidationException.class)
-    @ResponseStatus(HttpStatus.FORBIDDEN)
-    @ResponseBody
-    public ErrorResponse onValidationException(ValidationException e) {
-        return new ErrorResponse(HttpStatus.FORBIDDEN,
-                "Событие не удовлетворяет правилам создания.",
-                e.getMessage(),
-                LocalDateTime.now());
-    }*/
-
-/*
-    @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ResponseBody
-    public ErrorResponse onMethodNotAllowedException(HttpRequestMethodNotSupportedException e) {
-        return new ErrorResponse(HttpStatus.BAD_REQUEST,
-                "Такого метода нет.",
-                e.getMessage(),
-                LocalDateTime.now());
-    }*/
-
-    /*@ExceptionHandler(BadRequestException.class)
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ResponseBody
-    public ErrorResponse onBadRequestException(BadRequestException e) {
-        return new ErrorResponse(HttpStatus.BAD_REQUEST,
-                "The required object was not found.",
-                e.getMessage(),
-                LocalDateTime.now());
-    }
 
     @ExceptionHandler(ConflictException.class)
     @ResponseStatus(HttpStatus.CONFLICT)
@@ -87,7 +27,7 @@ public class ErrorHandler {
                 e.getMessage(),
                 LocalDateTime.now());
     }
-*/
+
     @ExceptionHandler(NotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ResponseBody
