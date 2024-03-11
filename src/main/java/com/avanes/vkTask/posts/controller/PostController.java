@@ -31,16 +31,33 @@ public class PostController {
     @GetMapping()
     @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_POSTS')")
     @ResponseStatus(HttpStatus.OK)
-    public PostFull[] getAlbums() {
+    public PostFull[] getPosts() {
         return postService.getPosts();
     }
 
     @PostMapping
     @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_POSTS')")
     @ResponseStatus(HttpStatus.CREATED)
-    public Post addAlbum(
+    public PostFull addPost(
             @RequestBody Post post) {
         return postService.addPost(post);
+    }
+
+    @PatchMapping("/{id}")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_POSTS')")
+    @ResponseStatus(HttpStatus.OK)
+    public PostFull patchAlbum(
+            @RequestBody Post post,
+            @PositiveOrZero @PathVariable Long id) {
+        return postService.patchPost(post, id);
+    }
+
+    @DeleteMapping("/{id}")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_POSTS')")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deletePost(
+            @PositiveOrZero @PathVariable Long id) {
+        postService.deletePost(id);
     }
 
 }

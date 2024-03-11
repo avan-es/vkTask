@@ -8,5 +8,9 @@ public interface PostService {
 
     PostFull[] getPosts();
 
-    Post addPost(Post post);
+    PostFull addPost(Post post);
+
+    PostFull patchPost(Post post, Long id);
+
+    void deletePost(Long id);
 }

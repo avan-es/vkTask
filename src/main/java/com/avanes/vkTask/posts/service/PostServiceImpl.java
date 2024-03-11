@@ -44,4 +44,39 @@ public class PostServiceImpl implements PostService {
         }
         return result;
     }
+
+    @Override
+    public PostFull patchPost(Post post, Long id) {
+        PostFull oldPost = getPost(id);
+        boolean isChanged = false;
+        Gson gson = new Gson();
+        if ((post.getTitle() != null) && (!post.getTitle().equals(oldPost.getTitle()))) {
+            oldPost.setTitle(post.getTitle());
+            isChanged = true;
+        }
+        if ((post.getUserId() != null) && (!post.getUserId().equals(oldPost.getUserId()))) {
+            oldPost.setUserId(post.getUserId());
+            isChanged = true;
+        }
+        if ((post.getBody() != null) && (!post.getBody().equals(oldPost.getBody()))) {
+            oldPost.setBody(post.getBody());
+            isChanged = true;
+        }
+        if (isChanged) {
+            try {
+                HttpResponse<String> response = GetData.INSTANCE.patchData(oldPost, POSTS_URL + "/" + id);
+                oldPost = gson.fromJson(response.body(), PostFull.class);
+            } catch (IOException | InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }else {
+            System.out.println("Обновление не выполнено. Новые данные соответствуют старым.");
+        }
+        return oldPost;
+    }
+
+    @Override
+    public void deletePost(Long id) {
+        GetData.INSTANCE.deleteData(POSTS_URL + "/" + id);
+    }
 }
