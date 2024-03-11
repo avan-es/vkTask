@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -29,5 +30,10 @@ public class LogDataServiceImpl implements LogDataService{
         logData.setResult(result);
         storage.save(logData);
         return logData;
+    }
+
+    @Override
+    public List<LogData> getAllLogsFromBD() {
+        return storage.getAllLogs();
     }
 }

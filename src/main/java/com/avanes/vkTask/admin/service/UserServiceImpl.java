@@ -8,6 +8,7 @@ import com.avanes.vkTask.admin.entity.UserEntity;
 import com.avanes.vkTask.admin.dto.UserMapper;
 import com.avanes.vkTask.admin.storage.UserRepository;
 import com.avanes.vkTask.constants.CrudOperations;
+import com.avanes.vkTask.log.model.LogData;
 import com.avanes.vkTask.log.service.LogDataService;
 import lombok.RequiredArgsConstructor;
 
@@ -63,6 +64,11 @@ public class UserServiceImpl implements UserService {
         userRepository.deleteById(id);
         log.addLog(LocalDateTime.now(), ADMIN_URL, CrudOperations.DELETE.name(), "SUCCESS");
 
+    }
+
+    @Override
+    public List<LogData> getAllLogs() {
+        return log.getAllLogsFromBD();
     }
 
     private boolean isUserPresentByEmail(String email) {

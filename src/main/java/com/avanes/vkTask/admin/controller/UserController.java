@@ -3,6 +3,7 @@ package com.avanes.vkTask.admin.controller;
 import com.avanes.vkTask.admin.dto.UserCreatDto;
 import com.avanes.vkTask.admin.dto.UserShortDto;
 import com.avanes.vkTask.admin.service.UserService;
+import com.avanes.vkTask.log.model.LogData;
 import jakarta.validation.constraints.PositiveOrZero;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -51,5 +52,12 @@ public class UserController {
     public void deleteUser(
             @PositiveOrZero @PathVariable Long id) {
         userService.deleteUser(id);
+    }
+
+    @GetMapping("/logs")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+    @ResponseStatus(HttpStatus.OK)
+    public List<LogData> getAllLogs() {
+        return userService.getAllLogs();
     }
 }
