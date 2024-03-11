@@ -37,7 +37,9 @@
 
 Алгоритм:
 - Склонировать приложение в свой репозиторий или скачать на компьютер;
-- Открыть и запустить проект в ***IntelliJ IDEA***;
+- Открыть в ***IntelliJ IDEA***;
+- Пересобрать maven;
+- Запустить проект VkTaskApplication.class;
 
 ### Для тестирования подготовлен файл коллекции Postman
 [VK_TEST.postman_collection.json](https://github.com/avan-es/vkTask/blob/master/postman-tests/VK_TEST.postman_collection.json)
