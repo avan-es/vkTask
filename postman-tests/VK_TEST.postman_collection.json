@@ -1,0 +1,5316 @@
+{
+	"info": {
+		"_postman_id": "7a1ea844-1270-44aa-b0b9-9f0e3c031e81",
+		"name": "VK TEST",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26075604"
+	},
+	"item": [
+		{
+			"name": "Albums",
+			"item": [
+				{
+					"name": "AdminUser gets album 1 by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 200\", function () {\r",
+									"    pm.response.to.be.ok;\r",
+									"});\r",
+									"pm.test(\"Есть тело ответа\", function () {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"pm.test(\"Тест album 'userId' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('userId');\r",
+									"    pm.expect(jsonData.userId, '\"userId\" = 1').to.eql(1);\r",
+									"});\r",
+									"pm.test(\"Тест album 'title'\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('title');\r",
+									"    pm.expect(jsonData.title, '\"title\" = \"quidem molestiae enim\"').to.eql('quidem molestiae enim');\r",
+									"});\r",
+									"pm.test(\"Тест album 'id'\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('id');\r",
+									"    pm.expect(jsonData.id, '\"id\" = \"1\"').to.eql(1);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "adminPassword",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/avan/albums/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"albums",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AdminUser gets all albums",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 200\", function () {\r",
+									"    pm.response.to.be.ok;\r",
+									"});\r",
+									"pm.test(\"Есть тело ответа\", function () {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"pm.test(\"Количество альбомов\", function () {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.length, 'Количество альбомов = 100').to.eql(100);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "adminPassword",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/avan/albums",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"albums"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AlbumUser gets album 1 by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 200\", function () {\r",
+									"    pm.response.to.be.ok;\r",
+									"});\r",
+									"pm.test(\"Есть тело ответа\", function () {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"pm.test(\"Тест album 'userId' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('userId');\r",
+									"    pm.expect(jsonData.userId, '\"userId\" = 1').to.eql(1);\r",
+									"});\r",
+									"pm.test(\"Тест album 'title'\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('title');\r",
+									"    pm.expect(jsonData.title, '\"title\" = \"quidem molestiae enim\"').to.eql('quidem molestiae enim');\r",
+									"});\r",
+									"pm.test(\"Тест album 'id'\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('id');\r",
+									"    pm.expect(jsonData.id, '\"id\" = \"1\"').to.eql(1);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "albums@mail.ru",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "albumPassword",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/avan/albums/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"albums",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AlbumUser gets all albums",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 200\", function () {\r",
+									"    pm.response.to.be.ok;\r",
+									"});\r",
+									"pm.test(\"Есть тело ответа\", function () {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"pm.test(\"Количество альбомов\", function () {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.length, 'Количество альбомов = 100').to.eql(100);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "albums@mail.ru",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "albumPassword",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/avan/albums",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"albums"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AlbumUser gets album 1000 by ID ERROR",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 404\", function () {\r",
+									"    pm.response.to.be.notFound;\r",
+									"});\r",
+									"pm.test(\"Есть тело ответа\", function () {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "albums@mail.ru",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "albumPassword",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/avan/albums/1000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"albums",
+								"1000"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AdminUser gets album 1000 by ID ERROR",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 404\", function () {\r",
+									"    pm.response.to.be.notFound;\r",
+									"});\r",
+									"pm.test(\"Есть тело ответа\", function () {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "adminPassword",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/avan/albums/1000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"albums",
+								"1000"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OtherUser gets album 1 by id ERROR 403",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 403\", function () {\r",
+									"    pm.response.to.be.forbidden;\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "post@mail.ru",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "postPassword",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/avan/albums/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"albums",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "NotRealUser gets album 1 by id ERROR 401",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 401\", function () {\r",
+									"    pm.response.to.be.unauthorized;\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "someone",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "someone@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/avan/albums/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"albums",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OtherUser gets all albums ERROR 403",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 403\", function () {\r",
+									"    pm.response.to.be.forbidden;\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "post@mail.ru",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "postPassword",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/avan/albums",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"albums"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "NotRealUser gets all albums ERROR 401",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 401\", function () {\r",
+									"    pm.response.to.be.unauthorized;\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "someone",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "someone@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/avan/albums",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"albums"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin creat album",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 201\", function () {\r",
+									"    pm.response.to.be.nested;\r",
+									"});\r",
+									"pm.test(\"Есть тело ответа\", function () {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"pm.test(\"Тест album 'userId' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('userId');\r",
+									"    pm.expect(jsonData.userId, '\"userId\" = 1').to.eql(1);\r",
+									"});\r",
+									"pm.test(\"Тест album 'title'\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('title');\r",
+									"    pm.expect(jsonData.title, '\"title\" = \"Это новый альбом с id 101\"').to.eql('Это новый альбом с id 101');\r",
+									"});\r",
+									"pm.test(\"Тест album 'id'\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('id');\r",
+									"    pm.expect(jsonData.id, '\"id\" = \"101\"').to.eql(101);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "adminPassword",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": 1,\r\n    \"title\": \"Это новый альбом с id 101\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/avan/albums",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"albums"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AlbumUser creat album",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 201\", function () {\r",
+									"    pm.response.to.be.nested;\r",
+									"});\r",
+									"pm.test(\"Есть тело ответа\", function () {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"pm.test(\"Тест album 'userId' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('userId');\r",
+									"    pm.expect(jsonData.userId, '\"userId\" = 1').to.eql(1);\r",
+									"});\r",
+									"pm.test(\"Тест album 'title'\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('title');\r",
+									"    pm.expect(jsonData.title, '\"title\" = \"Это новый альбом с id 101\"').to.eql('Это новый альбом с id 101');\r",
+									"});\r",
+									"pm.test(\"Тест album 'id'\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('id');\r",
+									"    pm.expect(jsonData.id, '\"id\" = \"101\"').to.eql(101);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "albumPassword",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "albums@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": 1,\r\n    \"title\": \"Это новый альбом с id 101\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/avan/albums",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"albums"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OtherUser creat album ERROR 403",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 403\", function () {\r",
+									"    pm.response.to.be.forbidden;\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "post@mail.ru",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "postPassword",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": 1,\r\n    \"title\": \"Это новый альбом с id 101\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/avan/albums",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"albums"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "NotRealUser album ERROR 401",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 401\", function () {\r",
+									"    pm.response.to.be.unauthorized;\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "someone",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "someone@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": 1,\r\n    \"title\": \"Это новый альбом с id 101\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/avan/albums",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"albums"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AdminUser patch album ID 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 201\", function () {\r",
+									"    pm.response.to.be.nested;\r",
+									"});\r",
+									"pm.test(\"Есть тело ответа\", function () {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"pm.test(\"Тест album 'userId' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('userId');\r",
+									"    pm.expect(jsonData.userId, '\"userId\" = 15').to.eql(15);\r",
+									"});\r",
+									"pm.test(\"Тест album 'title'\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('title');\r",
+									"    pm.expect(jsonData.title, '\"title\" = \"Описание альбома с ID 1 оновлено AdminUser\"').to.eql('Описание альбома с ID 1 оновлено AdminUser');\r",
+									"});\r",
+									"pm.test(\"Тест album 'id'\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('id');\r",
+									"    pm.expect(jsonData.id, '\"id\" = \"1\"').to.eql(1);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "adminPassword",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": 15,\r\n    \"title\": \"Описание альбома с ID 1 оновлено AdminUser\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/avan/albums/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"albums",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AlbumUser patch album ID 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 201\", function () {\r",
+									"    pm.response.to.be.nested;\r",
+									"});\r",
+									"pm.test(\"Есть тело ответа\", function () {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"pm.test(\"Тест album 'userId' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('userId');\r",
+									"    pm.expect(jsonData.userId, '\"userId\" = 15').to.eql(15);\r",
+									"});\r",
+									"pm.test(\"Тест album 'title'\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('title');\r",
+									"    pm.expect(jsonData.title, '\"title\" = \"Описание альбома с ID 1 оновлено AlbumUser\"').to.eql('Описание альбома с ID 1 оновлено AlbumUser');\r",
+									"});\r",
+									"pm.test(\"Тест album 'id'\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('id');\r",
+									"    pm.expect(jsonData.id, '\"id\" = \"1\"').to.eql(1);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "albumPassword",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "albums@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": 15,\r\n    \"title\": \"Описание альбома с ID 1 оновлено AlbumUser\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/avan/albums/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"albums",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OtherUser patch album ID 1 ERROR 403",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 403\", function () {\r",
+									"    pm.response.to.be.forbidden;\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "post@mail.ru",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "postPassword",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": 15,\r\n    \"title\": \"Описание альбома с ID 1 оновлено PostUser\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/avan/albums/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"albums",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "NotRealUser patch album ID 1 ERROR 401",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 401\", function () {\r",
+									"    pm.response.to.be.unauthorized;\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "someone",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "someone@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": 15,\r\n    \"title\": \"Описание альбома с ID 1 оновлено PostUser\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/avan/albums/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"albums",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AdminUser del album ID 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 200 или 204\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,204]);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "adminPassword",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/avan/albums/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"albums",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AlbumUser del album ID 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 200 или 204\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,204]);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "albumPassword",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "albums@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/avan/albums/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"albums",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OtherUser del album ID 1 ERROR 403",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 403\", function () {\r",
+									"    pm.response.to.be.forbidden;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "post@mail.ru",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "postPassword",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/avan/albums/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"albums",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "NotRealUser del album ID 1 ERROR 401",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 401\", function () {\r",
+									"    pm.response.to.be.unauthorized;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "someone",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "someone@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/avan/albums/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"albums",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Posts",
+			"item": [
+				{
+					"name": "AdminUser gets post 1 by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 200\", function () {\r",
+									"    pm.response.to.be.ok;\r",
+									"});\r",
+									"pm.test(\"Есть тело ответа\", function () {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"pm.test(\"Тест post 'userId' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('userId');\r",
+									"    pm.expect(jsonData.userId, '\"userId\" = 1').to.eql(1);\r",
+									"});\r",
+									"pm.test(\"Тест post 'title'\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('title');\r",
+									"    pm.expect(jsonData.title, '\"title\" = \"sunt aut facere repellat provident occaecati excepturi optio reprehenderit\"').to.eql('sunt aut facere repellat provident occaecati excepturi optio reprehenderit');\r",
+									"});\r",
+									"pm.test(\"Тест post 'body'\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('body');\r",
+									"    pm.expect(jsonData.body, '\"body\" = \"quia et suscipit\\nsuscipit recusandae consequuntur expedita et cum\\nreprehenderit molestiae ut ut quas totam\\nnostrum rerum est autem sunt rem eveniet architecto\"').to.eql('quia et suscipit\\nsuscipit recusandae consequuntur expedita et cum\\nreprehenderit molestiae ut ut quas totam\\nnostrum rerum est autem sunt rem eveniet architecto');\r",
+									"});\r",
+									"pm.test(\"Тест post 'id'\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('id');\r",
+									"    pm.expect(jsonData.id, '\"id\" = \"1\"').to.eql(1);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "adminPassword",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/avan/posts/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"posts",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AdminUser gets all posts",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 200\", function () {\r",
+									"    pm.response.to.be.ok;\r",
+									"});\r",
+									"pm.test(\"Есть тело ответа\", function () {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"pm.test(\"Количество постов\", function () {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.length, 'Количество постов = 100').to.eql(100);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "adminPassword",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/avan/posts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostUser gets post 1 by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 200\", function () {\r",
+									"    pm.response.to.be.ok;\r",
+									"});\r",
+									"pm.test(\"Есть тело ответа\", function () {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"pm.test(\"Тест post 'userId' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('userId');\r",
+									"    pm.expect(jsonData.userId, '\"userId\" = 1').to.eql(1);\r",
+									"});\r",
+									"pm.test(\"Тест post 'title'\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('title');\r",
+									"    pm.expect(jsonData.title, '\"title\" = \"sunt aut facere repellat provident occaecati excepturi optio reprehenderit\"').to.eql('sunt aut facere repellat provident occaecati excepturi optio reprehenderit');\r",
+									"});\r",
+									"pm.test(\"Тест post 'body'\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('body');\r",
+									"    pm.expect(jsonData.body, '\"body\" = \"quia et suscipit\\nsuscipit recusandae consequuntur expedita et cum\\nreprehenderit molestiae ut ut quas totam\\nnostrum rerum est autem sunt rem eveniet architecto\"').to.eql('quia et suscipit\\nsuscipit recusandae consequuntur expedita et cum\\nreprehenderit molestiae ut ut quas totam\\nnostrum rerum est autem sunt rem eveniet architecto');\r",
+									"});\r",
+									"pm.test(\"Тест post 'id'\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('id');\r",
+									"    pm.expect(jsonData.id, '\"id\" = \"1\"').to.eql(1);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "postPassword",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "post@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/avan/posts/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"posts",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostUser gets all posts",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 200\", function () {\r",
+									"    pm.response.to.be.ok;\r",
+									"});\r",
+									"pm.test(\"Есть тело ответа\", function () {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"pm.test(\"Количество постов\", function () {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.length, 'Количество постов = 100').to.eql(100);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "postPassword",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "post@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/avan/posts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostUser gets post 1000 by ID ERROR",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 404\", function () {\r",
+									"    pm.response.to.be.notFound;\r",
+									"});\r",
+									"pm.test(\"Есть тело ответа\", function () {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "postPassword",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "post@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/avan/posts/1000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"posts",
+								"1000"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AdminUser gets post 1000 by ID ERROR",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 404\", function () {\r",
+									"    pm.response.to.be.notFound;\r",
+									"});\r",
+									"pm.test(\"Есть тело ответа\", function () {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "adminPassword",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/avan/posts/1000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"posts",
+								"1000"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OtherUser gets post 1 by id ERROR 403",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 403\", function () {\r",
+									"    pm.response.to.be.forbidden;\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "albumPassword",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "albums@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/avan/posts/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"posts",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "NotRealUser gets post 1 by id ERROR 401",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 401\", function () {\r",
+									"    pm.response.to.be.unauthorized;\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "someone",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "someone@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/avan/posts/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"posts",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OtherUser gets all posts ERROR 403",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 403\", function () {\r",
+									"    pm.response.to.be.forbidden;\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "albumPassword",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "albums@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/avan/posts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "NotRealUser gets all posts ERROR 401",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 401\", function () {\r",
+									"    pm.response.to.be.unauthorized;\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "someone",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "someone@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/avan/posts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin creat post",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 201\", function () {\r",
+									"    pm.response.to.be.nested;\r",
+									"});\r",
+									"pm.test(\"Есть тело ответа\", function () {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"pm.test(\"Тест post 'userId' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('userId');\r",
+									"    pm.expect(jsonData.userId, '\"userId\" = 1').to.eql(1);\r",
+									"});\r",
+									"pm.test(\"Тест post 'title'\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('title');\r",
+									"    pm.expect(jsonData.title, '\"title\" = \"Новый пост\"').to.eql('Новый пост');\r",
+									"});\r",
+									"pm.test(\"Тест post 'body'\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('body');\r",
+									"    pm.expect(jsonData.body, '\"body\" = \"Описание поста с ID 101\"').to.eql('Описание поста с ID 101');\r",
+									"});\r",
+									"pm.test(\"Тест post 'id'\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('id');\r",
+									"    pm.expect(jsonData.id, '\"id\" = \"101\"').to.eql(101);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "adminPassword",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": 1,\r\n    \"title\": \"Новый пост\",\r\n    \"body\": \"Описание поста с ID 101\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/avan/posts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostUser creat post",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 201\", function () {\r",
+									"    pm.response.to.be.nested;\r",
+									"});\r",
+									"pm.test(\"Есть тело ответа\", function () {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"pm.test(\"Тест post 'userId' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('userId');\r",
+									"    pm.expect(jsonData.userId, '\"userId\" = 1').to.eql(1);\r",
+									"});\r",
+									"pm.test(\"Тест post 'title'\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('title');\r",
+									"    pm.expect(jsonData.title, '\"title\" = \"Новый пост\"').to.eql('Новый пост');\r",
+									"});\r",
+									"pm.test(\"Тест post 'body'\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('body');\r",
+									"    pm.expect(jsonData.body, '\"body\" = \"Описание поста с ID 101\"').to.eql('Описание поста с ID 101');\r",
+									"});\r",
+									"pm.test(\"Тест post 'id'\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('id');\r",
+									"    pm.expect(jsonData.id, '\"id\" = \"101\"').to.eql(101);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "postPassword",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "post@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": 1,\r\n    \"title\": \"Новый пост\",\r\n    \"body\": \"Описание поста с ID 101\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/avan/posts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OtherUser creat post ERROR 403",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 403\", function () {\r",
+									"    pm.response.to.be.forbidden;\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "albumPassword",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "albums@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": 1,\r\n    \"title\": \"Новый пост\",\r\n    \"body\": \"Описание поста с ID 101\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/avan/posts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "NotRealUser post ERROR 401",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 401\", function () {\r",
+									"    pm.response.to.be.unauthorized;\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "someone",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "someone@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": 1,\r\n    \"title\": \"Новый пост\",\r\n    \"body\": \"Описание поста с ID 101\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/avan/posts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AdminUser patch post ID 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 201\", function () {\r",
+									"    pm.response.to.be.nested;\r",
+									"});\r",
+									"pm.test(\"Есть тело ответа\", function () {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"pm.test(\"Тест post 'userId' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('userId');\r",
+									"    pm.expect(jsonData.userId, '\"userId\" = 11').to.eql(11);\r",
+									"});\r",
+									"pm.test(\"Тест post 'title'\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('title');\r",
+									"    pm.expect(jsonData.title, '\"title\" = \"Новый заголовок поста\"').to.eql('Новый заголовок поста');\r",
+									"});\r",
+									"pm.test(\"Тест post 'body'\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('body');\r",
+									"    pm.expect(jsonData.body, '\"body\" = \"Обновленное описание поста с ID 1\"').to.eql('Обновленное описание поста с ID 1');\r",
+									"});\r",
+									"pm.test(\"Тест post 'id'\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('id');\r",
+									"    pm.expect(jsonData.id, '\"id\" = \"1\"').to.eql(1);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "adminPassword",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": 11,\r\n    \"title\": \"Новый заголовок поста\",\r\n    \"body\": \"Обновленное описание поста с ID 1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/avan/posts/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"posts",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostUser patch post ID 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 201\", function () {\r",
+									"    pm.response.to.be.nested;\r",
+									"});\r",
+									"pm.test(\"Есть тело ответа\", function () {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"pm.test(\"Тест post 'userId' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('userId');\r",
+									"    pm.expect(jsonData.userId, '\"userId\" = 11').to.eql(11);\r",
+									"});\r",
+									"pm.test(\"Тест post 'title'\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('title');\r",
+									"    pm.expect(jsonData.title, '\"title\" = \"Новый заголовок поста\"').to.eql('Новый заголовок поста');\r",
+									"});\r",
+									"pm.test(\"Тест post 'body'\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('body');\r",
+									"    pm.expect(jsonData.body, '\"body\" = \"Обновленное описание поста с ID 1\"').to.eql('Обновленное описание поста с ID 1');\r",
+									"});\r",
+									"pm.test(\"Тест post 'id'\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('id');\r",
+									"    pm.expect(jsonData.id, '\"id\" = \"1\"').to.eql(1);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "postPassword",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "post@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": 11,\r\n    \"title\": \"Новый заголовок поста\",\r\n    \"body\": \"Обновленное описание поста с ID 1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/avan/posts/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"posts",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OtherUser patch post ID 1 ERROR 403",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 403\", function () {\r",
+									"    pm.response.to.be.forbidden;\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "albums@mail.ru",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "albumPassword",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": 11,\r\n    \"title\": \"Новый заголовок поста\",\r\n    \"body\": \"Обновленное описание поста с ID 1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/avan/posts/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"posts",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "NotRealUser patch post ID 1 ERROR 401",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 401\", function () {\r",
+									"    pm.response.to.be.unauthorized;\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "someone",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "someone@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": 11,\r\n    \"title\": \"Новый заголовок поста\",\r\n    \"body\": \"Обновленное описание поста с ID 1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/avan/posts/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"posts",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AdminUser del post ID 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 200 или 204\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,204]);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "adminPassword",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/avan/posts/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"posts",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostUser del post ID 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 200 или 204\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,204]);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "postPassword",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "post@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/avan/posts/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"posts",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OtherUser del post ID 1 ERROR 403",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 403\", function () {\r",
+									"    pm.response.to.be.forbidden;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "albumPassword",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "albums@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/avan/posts/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"posts",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "NotRealUser del post ID 1 ERROR 401",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 401\", function () {\r",
+									"    pm.response.to.be.unauthorized;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "someone",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "someone@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/avan/posts/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"posts",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "AdminUser gets user 1 by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 200\", function () {\r",
+									"    pm.response.to.be.ok;\r",
+									"});\r",
+									"pm.test(\"Есть тело ответа\", function () {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"pm.test(\"Тест user 'name' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('name');\r",
+									"    pm.expect(jsonData.name, '\"name\" = Leanne Graham').to.eql('Leanne Graham');\r",
+									"});\r",
+									"pm.test(\"Тест user 'username' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('username');\r",
+									"    pm.expect(jsonData.username, '\"username\" = Bret').to.eql('Bret');\r",
+									"});\r",
+									"pm.test(\"Тест user 'email' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('email');\r",
+									"    pm.expect(jsonData.email, '\"email\" = Sincere@april.biz').to.eql('Sincere@april.biz');\r",
+									"});\r",
+									"pm.test(\"Тест user - address 'street' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('address');\r",
+									"    pm.expect(jsonData.address).to.have.property('street');\r",
+									"    pm.expect(jsonData.address.street, '\"street\" = Kulas Light').to.eql('Kulas Light');\r",
+									"});\r",
+									"pm.test(\"Тест user - address 'suite' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('address');\r",
+									"    pm.expect(jsonData.address).to.have.property('suite');\r",
+									"    pm.expect(jsonData.address.suite, '\"suite\" = Apt. 556').to.eql('Apt. 556');\r",
+									"});\r",
+									"pm.test(\"Тест user - address 'city' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('address');\r",
+									"    pm.expect(jsonData.address).to.have.property('city');\r",
+									"    pm.expect(jsonData.address.city, '\"city\" = Gwenborough').to.eql('Gwenborough');\r",
+									"});\r",
+									"pm.test(\"Тест user - address 'zipcode' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('address');\r",
+									"    pm.expect(jsonData.address).to.have.property('zipcode');\r",
+									"    pm.expect(jsonData.address.zipcode, '\"zipcode\" = 92998-3874').to.eql('92998-3874');\r",
+									"});\r",
+									"pm.test(\"Тест user - address - geo 'lat' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('address');\r",
+									"    pm.expect(jsonData.address).to.have.property('geo');\r",
+									"    pm.expect(jsonData.address.geo).to.have.property('lat');\r",
+									"    pm.expect(jsonData.address.geo.lat, '\"lat\" = -37.3159').to.eql(-37.3159);\r",
+									"});\r",
+									"pm.test(\"Тест user - address - geo 'lng' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('address');\r",
+									"    pm.expect(jsonData.address).to.have.property('geo');\r",
+									"    pm.expect(jsonData.address.geo).to.have.property('lng');\r",
+									"    pm.expect(jsonData.address.geo.lng, '\"lng\" = -37.3159').to.eql(81.1496);\r",
+									"});\r",
+									"pm.test(\"Тест user 'phone' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('phone');\r",
+									"    pm.expect(jsonData.phone, '\"phone\" = 1-770-736-8031 x56442').to.eql('1-770-736-8031 x56442');\r",
+									"});\r",
+									"pm.test(\"Тест user 'website' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('website');\r",
+									"    pm.expect(jsonData.website, '\"website\" = hildegard.org').to.eql('hildegard.org');\r",
+									"});\r",
+									"pm.test(\"Тест user - company 'name' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('company');\r",
+									"    pm.expect(jsonData.company).to.have.property('name');\r",
+									"    pm.expect(jsonData.company.name, '\"name\" = Romaguera-Crona').to.eql('Romaguera-Crona');\r",
+									"});\r",
+									"pm.test(\"Тест user - company 'catchPhrase' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('company');\r",
+									"    pm.expect(jsonData.company).to.have.property('catchPhrase');\r",
+									"    pm.expect(jsonData.company.catchPhrase, '\"catchPhrase\" = Multi-layered client-server neural-net').to.eql('Multi-layered client-server neural-net');\r",
+									"});\r",
+									"pm.test(\"Тест user - company 'bs' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('company');\r",
+									"    pm.expect(jsonData.company).to.have.property('bs');\r",
+									"    pm.expect(jsonData.company.bs, '\"bs\" = harness real-time e-markets').to.eql('harness real-time e-markets');\r",
+									"});\r",
+									"pm.test(\"Тест user 'id' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('id');\r",
+									"    pm.expect(jsonData.id, '\"id\" =1').to.eql(1);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "adminPassword",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/avan/users/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AdminUser gets all users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 200\", function () {\r",
+									"    pm.response.to.be.ok;\r",
+									"});\r",
+									"pm.test(\"Есть тело ответа\", function () {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"pm.test(\"Количество пользователей\", function () {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.length, 'Количество пользователей = 10').to.eql(10);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "adminPassword",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/avan/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User gets user 1 by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 200\", function () {\r",
+									"    pm.response.to.be.ok;\r",
+									"});\r",
+									"pm.test(\"Есть тело ответа\", function () {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"pm.test(\"Тест user 'name' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('name');\r",
+									"    pm.expect(jsonData.name, '\"name\" = Leanne Graham').to.eql('Leanne Graham');\r",
+									"});\r",
+									"pm.test(\"Тест user 'username' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('username');\r",
+									"    pm.expect(jsonData.username, '\"username\" = Bret').to.eql('Bret');\r",
+									"});\r",
+									"pm.test(\"Тест user 'email' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('email');\r",
+									"    pm.expect(jsonData.email, '\"email\" = Sincere@april.biz').to.eql('Sincere@april.biz');\r",
+									"});\r",
+									"pm.test(\"Тест user - address 'street' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('address');\r",
+									"    pm.expect(jsonData.address).to.have.property('street');\r",
+									"    pm.expect(jsonData.address.street, '\"street\" = Kulas Light').to.eql('Kulas Light');\r",
+									"});\r",
+									"pm.test(\"Тест user - address 'suite' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('address');\r",
+									"    pm.expect(jsonData.address).to.have.property('suite');\r",
+									"    pm.expect(jsonData.address.suite, '\"suite\" = Apt. 556').to.eql('Apt. 556');\r",
+									"});\r",
+									"pm.test(\"Тест user - address 'city' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('address');\r",
+									"    pm.expect(jsonData.address).to.have.property('city');\r",
+									"    pm.expect(jsonData.address.city, '\"city\" = Gwenborough').to.eql('Gwenborough');\r",
+									"});\r",
+									"pm.test(\"Тест user - address 'zipcode' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('address');\r",
+									"    pm.expect(jsonData.address).to.have.property('zipcode');\r",
+									"    pm.expect(jsonData.address.zipcode, '\"zipcode\" = 92998-3874').to.eql('92998-3874');\r",
+									"});\r",
+									"pm.test(\"Тест user - address - geo 'lat' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('address');\r",
+									"    pm.expect(jsonData.address).to.have.property('geo');\r",
+									"    pm.expect(jsonData.address.geo).to.have.property('lat');\r",
+									"    pm.expect(jsonData.address.geo.lat, '\"lat\" = -37.3159').to.eql(-37.3159);\r",
+									"});\r",
+									"pm.test(\"Тест user - address - geo 'lng' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('address');\r",
+									"    pm.expect(jsonData.address).to.have.property('geo');\r",
+									"    pm.expect(jsonData.address.geo).to.have.property('lng');\r",
+									"    pm.expect(jsonData.address.geo.lng, '\"lng\" = -37.3159').to.eql(81.1496);\r",
+									"});\r",
+									"pm.test(\"Тест user 'phone' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('phone');\r",
+									"    pm.expect(jsonData.phone, '\"phone\" = 1-770-736-8031 x56442').to.eql('1-770-736-8031 x56442');\r",
+									"});\r",
+									"pm.test(\"Тест user 'website' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('website');\r",
+									"    pm.expect(jsonData.website, '\"website\" = hildegard.org').to.eql('hildegard.org');\r",
+									"});\r",
+									"pm.test(\"Тест user - company 'name' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('company');\r",
+									"    pm.expect(jsonData.company).to.have.property('name');\r",
+									"    pm.expect(jsonData.company.name, '\"name\" = Romaguera-Crona').to.eql('Romaguera-Crona');\r",
+									"});\r",
+									"pm.test(\"Тест user - company 'catchPhrase' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('company');\r",
+									"    pm.expect(jsonData.company).to.have.property('catchPhrase');\r",
+									"    pm.expect(jsonData.company.catchPhrase, '\"catchPhrase\" = Multi-layered client-server neural-net').to.eql('Multi-layered client-server neural-net');\r",
+									"});\r",
+									"pm.test(\"Тест user - company 'bs' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('company');\r",
+									"    pm.expect(jsonData.company).to.have.property('bs');\r",
+									"    pm.expect(jsonData.company.bs, '\"bs\" = harness real-time e-markets').to.eql('harness real-time e-markets');\r",
+									"});\r",
+									"pm.test(\"Тест user 'id' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('id');\r",
+									"    pm.expect(jsonData.id, '\"id\" =1').to.eql(1);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "users@mail.ru",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "userPassword",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/avan/users/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User gets all users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 200\", function () {\r",
+									"    pm.response.to.be.ok;\r",
+									"});\r",
+									"pm.test(\"Есть тело ответа\", function () {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"pm.test(\"Количество пользователей\", function () {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.length, 'Количество пользователей = 10').to.eql(10);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "userPassword",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "users@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/avan/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User gets user 1000 by ID ERROR",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 404\", function () {\r",
+									"    pm.response.to.be.notFound;\r",
+									"});\r",
+									"pm.test(\"Есть тело ответа\", function () {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "userPassword",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "users@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/avan/users/1000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"users",
+								"1000"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AdminUser gets user 1000 by ID ERROR",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 404\", function () {\r",
+									"    pm.response.to.be.notFound;\r",
+									"});\r",
+									"pm.test(\"Есть тело ответа\", function () {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "adminPassword",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/avan/users/1000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"users",
+								"1000"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OtherUser gets user 1 by id ERROR 403",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 403\", function () {\r",
+									"    pm.response.to.be.forbidden;\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "albumPassword",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "albums@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/avan/users/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "NotRealUser gets user 1 by id ERROR 401",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 401\", function () {\r",
+									"    pm.response.to.be.unauthorized;\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "someone",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "someone@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/avan/users/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OtherUser gets all users ERROR 403",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 403\", function () {\r",
+									"    pm.response.to.be.forbidden;\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "albumPassword",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "albums@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/avan/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "NotRealUser gets all posts ERROR 401",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 401\", function () {\r",
+									"    pm.response.to.be.unauthorized;\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "someone",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "someone@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/avan/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin creat user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 201\", function () {\r",
+									"    pm.response.to.be.nested;\r",
+									"});\r",
+									"pm.test(\"Есть тело ответа\", function () {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"pm.test(\"Тест user 'name' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('name');\r",
+									"    pm.expect(jsonData.name, '\"name\" = Иван Петров').to.eql('Иван Петров');\r",
+									"});\r",
+									"pm.test(\"Тест user 'username' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('username');\r",
+									"    pm.expect(jsonData.username, '\"username\" = Петр Первый').to.eql('Петр Первый');\r",
+									"});\r",
+									"pm.test(\"Тест user 'email' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('email');\r",
+									"    pm.expect(jsonData.email, '\"email\" = petr@mail.ru').to.eql('petr@mail.ru');\r",
+									"});\r",
+									"pm.test(\"Тест user - address 'street' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('address');\r",
+									"    pm.expect(jsonData.address).to.have.property('street');\r",
+									"    pm.expect(jsonData.address.street, '\"street\" = Невский проспект').to.eql('Невский проспект');\r",
+									"});\r",
+									"pm.test(\"Тест user - address 'suite' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('address');\r",
+									"    pm.expect(jsonData.address).to.have.property('suite');\r",
+									"    pm.expect(jsonData.address.suite, '\"suite\" = 35').to.eql('35');\r",
+									"});\r",
+									"pm.test(\"Тест user - address 'city' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('address');\r",
+									"    pm.expect(jsonData.address).to.have.property('city');\r",
+									"    pm.expect(jsonData.address.city, '\"city\" = Санкт-Петербург').to.eql('Санкт-Петербург');\r",
+									"});\r",
+									"pm.test(\"Тест user - address 'zipcode' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('address');\r",
+									"    pm.expect(jsonData.address).to.have.property('zipcode');\r",
+									"    pm.expect(jsonData.address.zipcode, '\"zipcode\" = 123456').to.eql('123456');\r",
+									"});\r",
+									"pm.test(\"Тест user - address - geo 'lat' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('address');\r",
+									"    pm.expect(jsonData.address).to.have.property('geo');\r",
+									"    pm.expect(jsonData.address.geo).to.have.property('lat');\r",
+									"    pm.expect(jsonData.address.geo.lat, '\"lat\" = -37.3159').to.eql(-37.3159);\r",
+									"});\r",
+									"pm.test(\"Тест user - address - geo 'lng' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('address');\r",
+									"    pm.expect(jsonData.address).to.have.property('geo');\r",
+									"    pm.expect(jsonData.address.geo).to.have.property('lng');\r",
+									"    pm.expect(jsonData.address.geo.lng, '\"lng\" = -37.3159').to.eql(81.1496);\r",
+									"});\r",
+									"pm.test(\"Тест user 'phone' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('phone');\r",
+									"    pm.expect(jsonData.phone, '\"phone\" = +7-123-456-78-90').to.eql('+7-123-456-78-90');\r",
+									"});\r",
+									"pm.test(\"Тест user 'website' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('website');\r",
+									"    pm.expect(jsonData.website, '\"website\" = pert.com').to.eql('pert.com');\r",
+									"});\r",
+									"pm.test(\"Тест user - company 'name' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('company');\r",
+									"    pm.expect(jsonData.company).to.have.property('name');\r",
+									"    pm.expect(jsonData.company.name, '\"name\" = Petrovskiy Bereg').to.eql('Petrovskiy Bereg');\r",
+									"});\r",
+									"pm.test(\"Тест user - company 'catchPhrase' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('company');\r",
+									"    pm.expect(jsonData.company).to.have.property('catchPhrase');\r",
+									"    pm.expect(jsonData.company.catchPhrase, '\"catchPhrase\" = Multi-layered client-server neural-net').to.eql('Multi-layered client-server neural-net');\r",
+									"});\r",
+									"pm.test(\"Тест user - company 'bs' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('company');\r",
+									"    pm.expect(jsonData.company).to.have.property('bs');\r",
+									"    pm.expect(jsonData.company.bs, '\"bs\" = harness real-time e-markets').to.eql('harness real-time e-markets');\r",
+									"});\r",
+									"pm.test(\"Тест user 'id' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('id');\r",
+									"    pm.expect(jsonData.id, '\"id\" =11').to.eql(11);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "adminPassword",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Иван Петров\",\r\n    \"username\": \"Петр Первый\",\r\n    \"email\": \"petr@mail.ru\",\r\n    \"address\": {\r\n        \"street\": \"Невский проспект\",\r\n        \"suite\": \"35\",\r\n        \"city\": \"Санкт-Петербург\",\r\n        \"zipcode\": \"123456\",\r\n        \"geo\": {\r\n            \"lat\": -37.3159,\r\n            \"lng\": 81.1496\r\n        }\r\n    },\r\n    \"phone\": \"+7-123-456-78-90\",\r\n    \"website\": \"pert.com\",\r\n    \"company\": {\r\n        \"name\": \"Petrovskiy Bereg\",\r\n        \"catchPhrase\": \"Multi-layered client-server neural-net\",\r\n        \"bs\": \"harness real-time e-markets\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/avan/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User creat user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 201\", function () {\r",
+									"    pm.response.to.be.nested;\r",
+									"});\r",
+									"pm.test(\"Есть тело ответа\", function () {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"pm.test(\"Тест user 'name' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('name');\r",
+									"    pm.expect(jsonData.name, '\"name\" = Иван Петров').to.eql('Иван Петров');\r",
+									"});\r",
+									"pm.test(\"Тест user 'username' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('username');\r",
+									"    pm.expect(jsonData.username, '\"username\" = Петр Первый').to.eql('Петр Первый');\r",
+									"});\r",
+									"pm.test(\"Тест user 'email' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('email');\r",
+									"    pm.expect(jsonData.email, '\"email\" = petr@mail.ru').to.eql('petr@mail.ru');\r",
+									"});\r",
+									"pm.test(\"Тест user - address 'street' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('address');\r",
+									"    pm.expect(jsonData.address).to.have.property('street');\r",
+									"    pm.expect(jsonData.address.street, '\"street\" = Невский проспект').to.eql('Невский проспект');\r",
+									"});\r",
+									"pm.test(\"Тест user - address 'suite' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('address');\r",
+									"    pm.expect(jsonData.address).to.have.property('suite');\r",
+									"    pm.expect(jsonData.address.suite, '\"suite\" = 35').to.eql('35');\r",
+									"});\r",
+									"pm.test(\"Тест user - address 'city' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('address');\r",
+									"    pm.expect(jsonData.address).to.have.property('city');\r",
+									"    pm.expect(jsonData.address.city, '\"city\" = Санкт-Петербург').to.eql('Санкт-Петербург');\r",
+									"});\r",
+									"pm.test(\"Тест user - address 'zipcode' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('address');\r",
+									"    pm.expect(jsonData.address).to.have.property('zipcode');\r",
+									"    pm.expect(jsonData.address.zipcode, '\"zipcode\" = 123456').to.eql('123456');\r",
+									"});\r",
+									"pm.test(\"Тест user - address - geo 'lat' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('address');\r",
+									"    pm.expect(jsonData.address).to.have.property('geo');\r",
+									"    pm.expect(jsonData.address.geo).to.have.property('lat');\r",
+									"    pm.expect(jsonData.address.geo.lat, '\"lat\" = -37.3159').to.eql(-37.3159);\r",
+									"});\r",
+									"pm.test(\"Тест user - address - geo 'lng' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('address');\r",
+									"    pm.expect(jsonData.address).to.have.property('geo');\r",
+									"    pm.expect(jsonData.address.geo).to.have.property('lng');\r",
+									"    pm.expect(jsonData.address.geo.lng, '\"lng\" = -37.3159').to.eql(81.1496);\r",
+									"});\r",
+									"pm.test(\"Тест user 'phone' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('phone');\r",
+									"    pm.expect(jsonData.phone, '\"phone\" = +7-123-456-78-90').to.eql('+7-123-456-78-90');\r",
+									"});\r",
+									"pm.test(\"Тест user 'website' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('website');\r",
+									"    pm.expect(jsonData.website, '\"website\" = pert.com').to.eql('pert.com');\r",
+									"});\r",
+									"pm.test(\"Тест user - company 'name' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('company');\r",
+									"    pm.expect(jsonData.company).to.have.property('name');\r",
+									"    pm.expect(jsonData.company.name, '\"name\" = Petrovskiy Bereg').to.eql('Petrovskiy Bereg');\r",
+									"});\r",
+									"pm.test(\"Тест user - company 'catchPhrase' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('company');\r",
+									"    pm.expect(jsonData.company).to.have.property('catchPhrase');\r",
+									"    pm.expect(jsonData.company.catchPhrase, '\"catchPhrase\" = Multi-layered client-server neural-net').to.eql('Multi-layered client-server neural-net');\r",
+									"});\r",
+									"pm.test(\"Тест user - company 'bs' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('company');\r",
+									"    pm.expect(jsonData.company).to.have.property('bs');\r",
+									"    pm.expect(jsonData.company.bs, '\"bs\" = harness real-time e-markets').to.eql('harness real-time e-markets');\r",
+									"});\r",
+									"pm.test(\"Тест user 'id' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('id');\r",
+									"    pm.expect(jsonData.id, '\"id\" =11').to.eql(11);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "userPassword",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "users@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Иван Петров\",\r\n    \"username\": \"Петр Первый\",\r\n    \"email\": \"petr@mail.ru\",\r\n    \"address\": {\r\n        \"street\": \"Невский проспект\",\r\n        \"suite\": \"35\",\r\n        \"city\": \"Санкт-Петербург\",\r\n        \"zipcode\": \"123456\",\r\n        \"geo\": {\r\n            \"lat\": -37.3159,\r\n            \"lng\": 81.1496\r\n        }\r\n    },\r\n    \"phone\": \"+7-123-456-78-90\",\r\n    \"website\": \"pert.com\",\r\n    \"company\": {\r\n        \"name\": \"Petrovskiy Bereg\",\r\n        \"catchPhrase\": \"Multi-layered client-server neural-net\",\r\n        \"bs\": \"harness real-time e-markets\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/avan/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OtherUser creat post ERROR 403",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 403\", function () {\r",
+									"    pm.response.to.be.forbidden;\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "albumPassword",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "albums@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Иван Петров\",\r\n    \"username\": \"Петр Первый\",\r\n    \"email\": \"petr@mail.ru\",\r\n    \"address\": {\r\n        \"street\": \"Невский проспект\",\r\n        \"suite\": \"35\",\r\n        \"city\": \"Санкт-Петербург\",\r\n        \"zipcode\": \"123456\",\r\n        \"geo\": {\r\n            \"lat\": -37.3159,\r\n            \"lng\": 81.1496\r\n        }\r\n    },\r\n    \"phone\": \"+7-123-456-78-90\",\r\n    \"website\": \"pert.com\",\r\n    \"company\": {\r\n        \"name\": \"Petrovskiy Bereg\",\r\n        \"catchPhrase\": \"Multi-layered client-server neural-net\",\r\n        \"bs\": \"harness real-time e-markets\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/avan/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "NotRealUser post ERROR 401",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 401\", function () {\r",
+									"    pm.response.to.be.unauthorized;\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "someone",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "someone@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Иван Петров\",\r\n    \"username\": \"Петр Первый\",\r\n    \"email\": \"petr@mail.ru\",\r\n    \"address\": {\r\n        \"street\": \"Невский проспект\",\r\n        \"suite\": \"35\",\r\n        \"city\": \"Санкт-Петербург\",\r\n        \"zipcode\": \"123456\",\r\n        \"geo\": {\r\n            \"lat\": -37.3159,\r\n            \"lng\": 81.1496\r\n        }\r\n    },\r\n    \"phone\": \"+7-123-456-78-90\",\r\n    \"website\": \"pert.com\",\r\n    \"company\": {\r\n        \"name\": \"Petrovskiy Bereg\",\r\n        \"catchPhrase\": \"Multi-layered client-server neural-net\",\r\n        \"bs\": \"harness real-time e-markets\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/avan/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AdminUser full patch user ID 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 201\", function () {\r",
+									"    pm.response.to.be.nested;\r",
+									"});\r",
+									"pm.test(\"Есть тело ответа\", function () {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"pm.test(\"Тест user 'name' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('name');\r",
+									"    pm.expect(jsonData.name, '\"name\" = Иван Петров обновлено').to.eql('Иван Петров обновлено');\r",
+									"});\r",
+									"pm.test(\"Тест user 'username' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('username');\r",
+									"    pm.expect(jsonData.username, '\"username\" = Петр Первый обновлено').to.eql('Петр Первый обновлено');\r",
+									"});\r",
+									"pm.test(\"Тест user 'email' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('email');\r",
+									"    pm.expect(jsonData.email, '\"email\" = NEW@mail.ru').to.eql('NEW@mail.ru');\r",
+									"});\r",
+									"pm.test(\"Тест user - address 'street' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('address');\r",
+									"    pm.expect(jsonData.address).to.have.property('street');\r",
+									"    pm.expect(jsonData.address.street, '\"street\" = Невский проспект обновлено').to.eql('Невский проспект обновлено');\r",
+									"});\r",
+									"pm.test(\"Тест user - address 'suite' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('address');\r",
+									"    pm.expect(jsonData.address).to.have.property('suite');\r",
+									"    pm.expect(jsonData.address.suite, '\"suite\" = 45').to.eql('45');\r",
+									"});\r",
+									"pm.test(\"Тест user - address 'city' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('address');\r",
+									"    pm.expect(jsonData.address).to.have.property('city');\r",
+									"    pm.expect(jsonData.address.city, '\"city\" = Санкт-Петербург').to.eql('Санкт-Петербург');\r",
+									"});\r",
+									"pm.test(\"Тест user - address 'zipcode' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('address');\r",
+									"    pm.expect(jsonData.address).to.have.property('zipcode');\r",
+									"    pm.expect(jsonData.address.zipcode, '\"zipcode\" = 654321').to.eql('654321');\r",
+									"});\r",
+									"pm.test(\"Тест user - address - geo 'lat' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('address');\r",
+									"    pm.expect(jsonData.address).to.have.property('geo');\r",
+									"    pm.expect(jsonData.address.geo).to.have.property('lat');\r",
+									"    pm.expect(jsonData.address.geo.lat, '\"lat\" = -90.3159').to.eql(-90.3159);\r",
+									"});\r",
+									"pm.test(\"Тест user - address - geo 'lng' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('address');\r",
+									"    pm.expect(jsonData.address).to.have.property('geo');\r",
+									"    pm.expect(jsonData.address.geo).to.have.property('lng');\r",
+									"    pm.expect(jsonData.address.geo.lng, '\"lng\" = 90.1496').to.eql(90.1496);\r",
+									"});\r",
+									"pm.test(\"Тест user 'phone' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('phone');\r",
+									"    pm.expect(jsonData.phone, '\"phone\" = +7-000-456-78-90').to.eql('+7-000-456-78-90');\r",
+									"});\r",
+									"pm.test(\"Тест user 'website' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('website');\r",
+									"    pm.expect(jsonData.website, '\"website\" = pert1.com').to.eql('pert1.com');\r",
+									"});\r",
+									"pm.test(\"Тест user - company 'name' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('company');\r",
+									"    pm.expect(jsonData.company).to.have.property('name');\r",
+									"    pm.expect(jsonData.company.name, '\"name\" = Petrovskiy Bereg NEW').to.eql('Petrovskiy Bereg NEW');\r",
+									"});\r",
+									"pm.test(\"Тест user - company 'catchPhrase' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('company');\r",
+									"    pm.expect(jsonData.company).to.have.property('catchPhrase');\r",
+									"    pm.expect(jsonData.company.catchPhrase, '\"catchPhrase\" = NEW Multi-layered client-server neural-net').to.eql('NEW Multi-layered client-server neural-net');\r",
+									"});\r",
+									"pm.test(\"Тест user - company 'bs' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('company');\r",
+									"    pm.expect(jsonData.company).to.have.property('bs');\r",
+									"    pm.expect(jsonData.company.bs, '\"bs\" = NEW harness real-time e-markets').to.eql('NEW harness real-time e-markets');\r",
+									"});\r",
+									"pm.test(\"Тест user 'id' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('id');\r",
+									"    pm.expect(jsonData.id, '\"id\" =1').to.eql(1);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "adminPassword",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Иван Петров обновлено\",\r\n    \"username\": \"Петр Первый обновлено\",\r\n    \"email\": \"NEW@mail.ru\",\r\n    \"address\": {\r\n        \"street\": \"Невский проспект обновлено\",\r\n        \"suite\": \"45\",\r\n        \"city\": \"Санкт-Петербург\",\r\n        \"zipcode\": \"654321\",\r\n        \"geo\": {\r\n            \"lat\": -90.3159,\r\n            \"lng\": 90.1496\r\n        }\r\n    },\r\n    \"phone\": \"+7-000-456-78-90\",\r\n    \"website\": \"pert1.com\",\r\n    \"company\": {\r\n        \"name\": \"Petrovskiy Bereg NEW\",\r\n        \"catchPhrase\": \"NEW Multi-layered client-server neural-net\",\r\n        \"bs\": \"NEW harness real-time e-markets\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/avan/users/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AdminUser part patch user ID 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 201\", function () {\r",
+									"    pm.response.to.be.nested;\r",
+									"});\r",
+									"pm.test(\"Есть тело ответа\", function () {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"pm.test(\"Тест user 'name' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('name');\r",
+									"    pm.expect(jsonData.name, '\"name\" = Иван Петров обновлено').to.eql('Иван Петров обновлено');\r",
+									"});\r",
+									"pm.test(\"Тест user 'username' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('username');\r",
+									"    pm.expect(jsonData.username, '\"username\" = Петр Первый обновлено').to.eql('Петр Первый обновлено');\r",
+									"});\r",
+									"pm.test(\"Тест user 'email' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('email');\r",
+									"    pm.expect(jsonData.email, '\"email\" = NEW@mail.ru').to.eql('NEW@mail.ru');\r",
+									"});\r",
+									"pm.test(\"Тест user - address 'street' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('address');\r",
+									"    pm.expect(jsonData.address).to.have.property('street');\r",
+									"    pm.expect(jsonData.address.street, '\"street\" = Kulas Light').to.eql('Kulas Light');\r",
+									"});\r",
+									"pm.test(\"Тест user - address 'suite' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('address');\r",
+									"    pm.expect(jsonData.address).to.have.property('suite');\r",
+									"    pm.expect(jsonData.address.suite, '\"suite\" = Apt. 556').to.eql('Apt. 556');\r",
+									"});\r",
+									"pm.test(\"Тест user - address 'city' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('address');\r",
+									"    pm.expect(jsonData.address).to.have.property('city');\r",
+									"    pm.expect(jsonData.address.city, '\"city\" = Gwenborough').to.eql('Gwenborough');\r",
+									"});\r",
+									"pm.test(\"Тест user - address 'zipcode' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('address');\r",
+									"    pm.expect(jsonData.address).to.have.property('zipcode');\r",
+									"    pm.expect(jsonData.address.zipcode, '\"zipcode\" = 654321').to.eql('654321');\r",
+									"});\r",
+									"pm.test(\"Тест user - address - geo 'lat' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('address');\r",
+									"    pm.expect(jsonData.address).to.have.property('geo');\r",
+									"    pm.expect(jsonData.address.geo).to.have.property('lat');\r",
+									"    pm.expect(jsonData.address.geo.lat, '\"lat\" = -37.3159').to.eql(-37.3159);\r",
+									"});\r",
+									"pm.test(\"Тест user - address - geo 'lng' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('address');\r",
+									"    pm.expect(jsonData.address).to.have.property('geo');\r",
+									"    pm.expect(jsonData.address.geo).to.have.property('lng');\r",
+									"    pm.expect(jsonData.address.geo.lng, '\"lng\" = 90.1496').to.eql(90.1496);\r",
+									"});\r",
+									"pm.test(\"Тест user 'phone' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('phone');\r",
+									"    pm.expect(jsonData.phone, '\"phone\" = +7-000-456-78-90').to.eql('+7-000-456-78-90');\r",
+									"});\r",
+									"pm.test(\"Тест user 'website' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('website');\r",
+									"    pm.expect(jsonData.website, '\"website\" = pert1.com').to.eql('pert1.com');\r",
+									"});\r",
+									"pm.test(\"Тест user - company 'name' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('company');\r",
+									"    pm.expect(jsonData.company).to.have.property('name');\r",
+									"    pm.expect(jsonData.company.name, '\"name\" = Petrovskiy Bereg NEW').to.eql('Petrovskiy Bereg NEW');\r",
+									"});\r",
+									"pm.test(\"Тест user - company 'catchPhrase' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('company');\r",
+									"    pm.expect(jsonData.company).to.have.property('catchPhrase');\r",
+									"    pm.expect(jsonData.company.catchPhrase, '\"catchPhrase\" = Multi-layered client-server neural-net').to.eql('Multi-layered client-server neural-net');\r",
+									"});\r",
+									"pm.test(\"Тест user - company 'bs' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('company');\r",
+									"    pm.expect(jsonData.company).to.have.property('bs');\r",
+									"    pm.expect(jsonData.company.bs, '\"bs\" = harness real-time e-markets').to.eql('harness real-time e-markets');\r",
+									"});\r",
+									"pm.test(\"Тест user 'id' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('id');\r",
+									"    pm.expect(jsonData.id, '\"id\" =1').to.eql(1);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "adminPassword",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Иван Петров обновлено\",\r\n    \"username\": \"Петр Первый обновлено\",\r\n    \"email\": \"NEW@mail.ru\",\r\n    \"address\": {\r\n        \"zipcode\": \"654321\",\r\n        \"geo\": {\r\n            \"lng\": 90.1496\r\n        }\r\n    },\r\n    \"phone\": \"+7-000-456-78-90\",\r\n    \"website\": \"pert1.com\",\r\n    \"company\": {\r\n        \"name\": \"Petrovskiy Bereg NEW\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/avan/users/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User full patch user ID 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 201\", function () {\r",
+									"    pm.response.to.be.nested;\r",
+									"});\r",
+									"pm.test(\"Есть тело ответа\", function () {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"pm.test(\"Тест user 'name' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('name');\r",
+									"    pm.expect(jsonData.name, '\"name\" = Иван Петров обновлено').to.eql('Иван Петров обновлено');\r",
+									"});\r",
+									"pm.test(\"Тест user 'username' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('username');\r",
+									"    pm.expect(jsonData.username, '\"username\" = Петр Первый обновлено').to.eql('Петр Первый обновлено');\r",
+									"});\r",
+									"pm.test(\"Тест user 'email' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('email');\r",
+									"    pm.expect(jsonData.email, '\"email\" = NEW@mail.ru').to.eql('NEW@mail.ru');\r",
+									"});\r",
+									"pm.test(\"Тест user - address 'street' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('address');\r",
+									"    pm.expect(jsonData.address).to.have.property('street');\r",
+									"    pm.expect(jsonData.address.street, '\"street\" = Невский проспект обновлено').to.eql('Невский проспект обновлено');\r",
+									"});\r",
+									"pm.test(\"Тест user - address 'suite' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('address');\r",
+									"    pm.expect(jsonData.address).to.have.property('suite');\r",
+									"    pm.expect(jsonData.address.suite, '\"suite\" = 45').to.eql('45');\r",
+									"});\r",
+									"pm.test(\"Тест user - address 'city' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('address');\r",
+									"    pm.expect(jsonData.address).to.have.property('city');\r",
+									"    pm.expect(jsonData.address.city, '\"city\" = Санкт-Петербург').to.eql('Санкт-Петербург');\r",
+									"});\r",
+									"pm.test(\"Тест user - address 'zipcode' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('address');\r",
+									"    pm.expect(jsonData.address).to.have.property('zipcode');\r",
+									"    pm.expect(jsonData.address.zipcode, '\"zipcode\" = 654321').to.eql('654321');\r",
+									"});\r",
+									"pm.test(\"Тест user - address - geo 'lat' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('address');\r",
+									"    pm.expect(jsonData.address).to.have.property('geo');\r",
+									"    pm.expect(jsonData.address.geo).to.have.property('lat');\r",
+									"    pm.expect(jsonData.address.geo.lat, '\"lat\" = -90.3159').to.eql(-90.3159);\r",
+									"});\r",
+									"pm.test(\"Тест user - address - geo 'lng' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('address');\r",
+									"    pm.expect(jsonData.address).to.have.property('geo');\r",
+									"    pm.expect(jsonData.address.geo).to.have.property('lng');\r",
+									"    pm.expect(jsonData.address.geo.lng, '\"lng\" = 90.1496').to.eql(90.1496);\r",
+									"});\r",
+									"pm.test(\"Тест user 'phone' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('phone');\r",
+									"    pm.expect(jsonData.phone, '\"phone\" = +7-000-456-78-90').to.eql('+7-000-456-78-90');\r",
+									"});\r",
+									"pm.test(\"Тест user 'website' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('website');\r",
+									"    pm.expect(jsonData.website, '\"website\" = pert1.com').to.eql('pert1.com');\r",
+									"});\r",
+									"pm.test(\"Тест user - company 'name' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('company');\r",
+									"    pm.expect(jsonData.company).to.have.property('name');\r",
+									"    pm.expect(jsonData.company.name, '\"name\" = Petrovskiy Bereg NEW').to.eql('Petrovskiy Bereg NEW');\r",
+									"});\r",
+									"pm.test(\"Тест user - company 'catchPhrase' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('company');\r",
+									"    pm.expect(jsonData.company).to.have.property('catchPhrase');\r",
+									"    pm.expect(jsonData.company.catchPhrase, '\"catchPhrase\" = NEW Multi-layered client-server neural-net').to.eql('NEW Multi-layered client-server neural-net');\r",
+									"});\r",
+									"pm.test(\"Тест user - company 'bs' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('company');\r",
+									"    pm.expect(jsonData.company).to.have.property('bs');\r",
+									"    pm.expect(jsonData.company.bs, '\"bs\" = NEW harness real-time e-markets').to.eql('NEW harness real-time e-markets');\r",
+									"});\r",
+									"pm.test(\"Тест user 'id' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('id');\r",
+									"    pm.expect(jsonData.id, '\"id\" =1').to.eql(1);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "userPassword",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "users@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Иван Петров обновлено\",\r\n    \"username\": \"Петр Первый обновлено\",\r\n    \"email\": \"NEW@mail.ru\",\r\n    \"address\": {\r\n        \"street\": \"Невский проспект обновлено\",\r\n        \"suite\": \"45\",\r\n        \"city\": \"Санкт-Петербург\",\r\n        \"zipcode\": \"654321\",\r\n        \"geo\": {\r\n            \"lat\": -90.3159,\r\n            \"lng\": 90.1496\r\n        }\r\n    },\r\n    \"phone\": \"+7-000-456-78-90\",\r\n    \"website\": \"pert1.com\",\r\n    \"company\": {\r\n        \"name\": \"Petrovskiy Bereg NEW\",\r\n        \"catchPhrase\": \"NEW Multi-layered client-server neural-net\",\r\n        \"bs\": \"NEW harness real-time e-markets\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/avan/users/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User part patch user ID 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 201\", function () {\r",
+									"    pm.response.to.be.nested;\r",
+									"});\r",
+									"pm.test(\"Есть тело ответа\", function () {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"pm.test(\"Тест user 'name' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('name');\r",
+									"    pm.expect(jsonData.name, '\"name\" = Иван Петров обновлено').to.eql('Иван Петров обновлено');\r",
+									"});\r",
+									"pm.test(\"Тест user 'username' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('username');\r",
+									"    pm.expect(jsonData.username, '\"username\" = Петр Первый обновлено').to.eql('Петр Первый обновлено');\r",
+									"});\r",
+									"pm.test(\"Тест user 'email' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('email');\r",
+									"    pm.expect(jsonData.email, '\"email\" = NEW@mail.ru').to.eql('NEW@mail.ru');\r",
+									"});\r",
+									"pm.test(\"Тест user - address 'street' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('address');\r",
+									"    pm.expect(jsonData.address).to.have.property('street');\r",
+									"    pm.expect(jsonData.address.street, '\"street\" = Kulas Light').to.eql('Kulas Light');\r",
+									"});\r",
+									"pm.test(\"Тест user - address 'suite' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('address');\r",
+									"    pm.expect(jsonData.address).to.have.property('suite');\r",
+									"    pm.expect(jsonData.address.suite, '\"suite\" = Apt. 556').to.eql('Apt. 556');\r",
+									"});\r",
+									"pm.test(\"Тест user - address 'city' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('address');\r",
+									"    pm.expect(jsonData.address).to.have.property('city');\r",
+									"    pm.expect(jsonData.address.city, '\"city\" = Gwenborough').to.eql('Gwenborough');\r",
+									"});\r",
+									"pm.test(\"Тест user - address 'zipcode' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('address');\r",
+									"    pm.expect(jsonData.address).to.have.property('zipcode');\r",
+									"    pm.expect(jsonData.address.zipcode, '\"zipcode\" = 654321').to.eql('654321');\r",
+									"});\r",
+									"pm.test(\"Тест user - address - geo 'lat' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('address');\r",
+									"    pm.expect(jsonData.address).to.have.property('geo');\r",
+									"    pm.expect(jsonData.address.geo).to.have.property('lat');\r",
+									"    pm.expect(jsonData.address.geo.lat, '\"lat\" = -37.3159').to.eql(-37.3159);\r",
+									"});\r",
+									"pm.test(\"Тест user - address - geo 'lng' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('address');\r",
+									"    pm.expect(jsonData.address).to.have.property('geo');\r",
+									"    pm.expect(jsonData.address.geo).to.have.property('lng');\r",
+									"    pm.expect(jsonData.address.geo.lng, '\"lng\" = 90.1496').to.eql(90.1496);\r",
+									"});\r",
+									"pm.test(\"Тест user 'phone' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('phone');\r",
+									"    pm.expect(jsonData.phone, '\"phone\" = +7-000-456-78-90').to.eql('+7-000-456-78-90');\r",
+									"});\r",
+									"pm.test(\"Тест user 'website' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('website');\r",
+									"    pm.expect(jsonData.website, '\"website\" = pert1.com').to.eql('pert1.com');\r",
+									"});\r",
+									"pm.test(\"Тест user - company 'name' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('company');\r",
+									"    pm.expect(jsonData.company).to.have.property('name');\r",
+									"    pm.expect(jsonData.company.name, '\"name\" = Petrovskiy Bereg NEW').to.eql('Petrovskiy Bereg NEW');\r",
+									"});\r",
+									"pm.test(\"Тест user - company 'catchPhrase' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('company');\r",
+									"    pm.expect(jsonData.company).to.have.property('catchPhrase');\r",
+									"    pm.expect(jsonData.company.catchPhrase, '\"catchPhrase\" = Multi-layered client-server neural-net').to.eql('Multi-layered client-server neural-net');\r",
+									"});\r",
+									"pm.test(\"Тест user - company 'bs' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('company');\r",
+									"    pm.expect(jsonData.company).to.have.property('bs');\r",
+									"    pm.expect(jsonData.company.bs, '\"bs\" = harness real-time e-markets').to.eql('harness real-time e-markets');\r",
+									"});\r",
+									"pm.test(\"Тест user 'id' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('id');\r",
+									"    pm.expect(jsonData.id, '\"id\" =1').to.eql(1);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "userPassword",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "users@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Иван Петров обновлено\",\r\n    \"username\": \"Петр Первый обновлено\",\r\n    \"email\": \"NEW@mail.ru\",\r\n    \"address\": {\r\n        \"zipcode\": \"654321\",\r\n        \"geo\": {\r\n            \"lng\": 90.1496\r\n        }\r\n    },\r\n    \"phone\": \"+7-000-456-78-90\",\r\n    \"website\": \"pert1.com\",\r\n    \"company\": {\r\n        \"name\": \"Petrovskiy Bereg NEW\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/avan/users/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OtherUser patch user ID 1 ERROR 403",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 403\", function () {\r",
+									"    pm.response.to.be.forbidden;\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "albums@mail.ru",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "albumPassword",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Иван Петров обновлено\",\r\n    \"username\": \"Петр Первый обновлено\",\r\n    \"email\": \"NEW@mail.ru\",\r\n    \"address\": {\r\n        \"zipcode\": \"654321\",\r\n        \"geo\": {\r\n            \"lng\": 90.1496\r\n        }\r\n    },\r\n    \"phone\": \"+7-000-456-78-90\",\r\n    \"website\": \"pert1.com\",\r\n    \"company\": {\r\n        \"name\": \"Petrovskiy Bereg NEW\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/avan/users/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "NotRealUser patch user ID 1 ERROR 401",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 401\", function () {\r",
+									"    pm.response.to.be.unauthorized;\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "someone",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "someone@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Иван Петров обновлено\",\r\n    \"username\": \"Петр Первый обновлено\",\r\n    \"email\": \"NEW@mail.ru\",\r\n    \"address\": {\r\n        \"zipcode\": \"654321\",\r\n        \"geo\": {\r\n            \"lng\": 90.1496\r\n        }\r\n    },\r\n    \"phone\": \"+7-000-456-78-90\",\r\n    \"website\": \"pert1.com\",\r\n    \"company\": {\r\n        \"name\": \"Petrovskiy Bereg NEW\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/avan/users/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AdminUser del user ID 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 200 или 204\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,204]);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "adminPassword",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/avan/users/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User del user ID 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 200 или 204\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,204]);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "userPassword",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "users@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/avan/users/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OtherUser del user ID 1 ERROR 403",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 403\", function () {\r",
+									"    pm.response.to.be.forbidden;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "albumPassword",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "albums@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/avan/users/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "NotRealUser del user ID 1  ERROR 401",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 401\", function () {\r",
+									"    pm.response.to.be.unauthorized;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "someone",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "someone@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/avan/users/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin part DB",
+			"item": [
+				{
+					"name": "Admin gets user ID 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 200\", function () {\r",
+									"    pm.response.to.be.ok;\r",
+									"});\r",
+									"pm.test(\"Есть тело ответа\", function () {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"pm.test(\"Тест user 'email' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('email');\r",
+									"    pm.expect(jsonData.email, '\"email\" = admin@mail.ru').to.eql('admin@mail.ru');\r",
+									"});\r",
+									"pm.test(\"Тест user 'role' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('role');\r",
+									"    pm.expect(jsonData.role, '\"role\" = ROLE_ADMIN').to.eql('ROLE_ADMIN');\r",
+									"});\r",
+									"pm.test(\"Тест user 'id' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('id');\r",
+									"    pm.expect(jsonData.id, '\"id\" = 1').to.eql(1);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "adminPassword",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/avan/admin/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"admin",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin gets all users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 200\", function () {\r",
+									"    pm.response.to.be.ok;\r",
+									"});\r",
+									"pm.test(\"Есть тело ответа\", function () {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"pm.test(\"Количество пользователей\", function () {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.length, 'Количество пользователей = 4').to.eql(4);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "adminPassword",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/avan/admin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin add user test@mail.ru with ROLE_USER",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 201\", function () {\r",
+									"    pm.response.to.be.nested;\r",
+									"});\r",
+									"pm.test(\"Есть тело ответа\", function () {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"pm.test(\"Тест user 'email' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('email');\r",
+									"    pm.expect(jsonData.email, '\"email\" = test@mail.ru').to.eql('test@mail.ru');\r",
+									"});\r",
+									"pm.test(\"Тест user 'role' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('role');\r",
+									"    pm.expect(jsonData.role, '\"role\" = ROLE_USERS').to.eql('ROLE_USERS');\r",
+									"});\r",
+									"pm.test(\"Тест user 'id' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('id');\r",
+									"    pm.expect(jsonData.id, '\"id\" = 5').to.eql(5);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "adminPassword",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"test@mail.ru\",\r\n    \"role\": \"ROLE_USERS\",\r\n    \"password\": \"testPassword\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/avan/admin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "test@mail.ru gets user ID 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 200\", function () {\r",
+									"    pm.response.to.be.ok;\r",
+									"});\r",
+									"pm.test(\"Есть тело ответа\", function () {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"pm.test(\"Тест user 'name' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('name');\r",
+									"    pm.expect(jsonData.name, '\"name\" = Leanne Graham').to.eql('Leanne Graham');\r",
+									"});\r",
+									"pm.test(\"Тест user 'username' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('username');\r",
+									"    pm.expect(jsonData.username, '\"username\" = Bret').to.eql('Bret');\r",
+									"});\r",
+									"pm.test(\"Тест user 'email' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('email');\r",
+									"    pm.expect(jsonData.email, '\"email\" = Sincere@april.biz').to.eql('Sincere@april.biz');\r",
+									"});\r",
+									"pm.test(\"Тест user - address 'street' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('address');\r",
+									"    pm.expect(jsonData.address).to.have.property('street');\r",
+									"    pm.expect(jsonData.address.street, '\"street\" = Kulas Light').to.eql('Kulas Light');\r",
+									"});\r",
+									"pm.test(\"Тест user - address 'suite' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('address');\r",
+									"    pm.expect(jsonData.address).to.have.property('suite');\r",
+									"    pm.expect(jsonData.address.suite, '\"suite\" = Apt. 556').to.eql('Apt. 556');\r",
+									"});\r",
+									"pm.test(\"Тест user - address 'city' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('address');\r",
+									"    pm.expect(jsonData.address).to.have.property('city');\r",
+									"    pm.expect(jsonData.address.city, '\"city\" = Gwenborough').to.eql('Gwenborough');\r",
+									"});\r",
+									"pm.test(\"Тест user - address 'zipcode' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('address');\r",
+									"    pm.expect(jsonData.address).to.have.property('zipcode');\r",
+									"    pm.expect(jsonData.address.zipcode, '\"zipcode\" = 92998-3874').to.eql('92998-3874');\r",
+									"});\r",
+									"pm.test(\"Тест user - address - geo 'lat' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('address');\r",
+									"    pm.expect(jsonData.address).to.have.property('geo');\r",
+									"    pm.expect(jsonData.address.geo).to.have.property('lat');\r",
+									"    pm.expect(jsonData.address.geo.lat, '\"lat\" = -37.3159').to.eql(-37.3159);\r",
+									"});\r",
+									"pm.test(\"Тест user - address - geo 'lng' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('address');\r",
+									"    pm.expect(jsonData.address).to.have.property('geo');\r",
+									"    pm.expect(jsonData.address.geo).to.have.property('lng');\r",
+									"    pm.expect(jsonData.address.geo.lng, '\"lng\" = -37.3159').to.eql(81.1496);\r",
+									"});\r",
+									"pm.test(\"Тест user 'phone' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('phone');\r",
+									"    pm.expect(jsonData.phone, '\"phone\" = 1-770-736-8031 x56442').to.eql('1-770-736-8031 x56442');\r",
+									"});\r",
+									"pm.test(\"Тест user 'website' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('website');\r",
+									"    pm.expect(jsonData.website, '\"website\" = hildegard.org').to.eql('hildegard.org');\r",
+									"});\r",
+									"pm.test(\"Тест user - company 'name' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('company');\r",
+									"    pm.expect(jsonData.company).to.have.property('name');\r",
+									"    pm.expect(jsonData.company.name, '\"name\" = Romaguera-Crona').to.eql('Romaguera-Crona');\r",
+									"});\r",
+									"pm.test(\"Тест user - company 'catchPhrase' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('company');\r",
+									"    pm.expect(jsonData.company).to.have.property('catchPhrase');\r",
+									"    pm.expect(jsonData.company.catchPhrase, '\"catchPhrase\" = Multi-layered client-server neural-net').to.eql('Multi-layered client-server neural-net');\r",
+									"});\r",
+									"pm.test(\"Тест user - company 'bs' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('company');\r",
+									"    pm.expect(jsonData.company).to.have.property('bs');\r",
+									"    pm.expect(jsonData.company.bs, '\"bs\" = harness real-time e-markets').to.eql('harness real-time e-markets');\r",
+									"});\r",
+									"pm.test(\"Тест user 'id' \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('id');\r",
+									"    pm.expect(jsonData.id, '\"id\" =1').to.eql(1);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "testPassword",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "test@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/avan/users/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "test@mail.ru gets user ID 1 ERROR 403",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 403\", function () {\r",
+									"    pm.response.to.be.forbidden;\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "testPassword",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "test@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/avan/posts/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"posts",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin gets all users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 200\", function () {\r",
+									"    pm.response.to.be.ok;\r",
+									"});\r",
+									"pm.test(\"Есть тело ответа\", function () {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"pm.test(\"Количество пользователей\", function () {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.length, 'Количество пользователей = 5').to.eql(5);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "adminPassword",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/avan/admin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin delete test@mail.ru user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 200 или 204\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,204]);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "adminPassword",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/avan/admin/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"admin",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin gets all users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 200\", function () {\r",
+									"    pm.response.to.be.ok;\r",
+									"});\r",
+									"pm.test(\"Есть тело ответа\", function () {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"pm.test(\"Количество пользователей\", function () {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.length, 'Количество пользователей = 4').to.eql(4);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "adminPassword",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/avan/admin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin gets all logs",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Код 200\", function () {\r",
+									"    pm.response.to.be.ok;\r",
+									"});\r",
+									"pm.test(\"Есть тело ответа\", function () {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"pm.test(\"Количество пользователей\", function () {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.length, 'Количество пользователей = 4').to.eql(4);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "adminPassword",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin@mail.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/avan/admin/logs",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"avan",
+								"admin",
+								"logs"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
