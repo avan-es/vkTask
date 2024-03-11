@@ -1,5 +1,7 @@
 package com.avanes.vkTask.users.service;
 
+import com.avanes.vkTask.constants.CrudOperations;
+import com.avanes.vkTask.log.service.LogDataService;
 import com.avanes.vkTask.users.POJO.UserSite;
 import com.avanes.vkTask.users.POJO.UserSiteFull;
 import com.avanes.vkTask.utils.GetData;
@@ -10,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.net.http.HttpResponse;
+import java.time.LocalDateTime;
 
 import static com.avanes.vkTask.constants.CrudOperations.GET;
 import static com.avanes.vkTask.constants.TaskConstants.USERS_URL;
@@ -17,12 +20,16 @@ import static com.avanes.vkTask.constants.TaskConstants.USERS_URL;
 @Service
 @RequiredArgsConstructor
 public class UserSiteServiceImpl implements UserSiteService {
+
+    private final LogDataService log;
+
     @Override
     @Cacheable(cacheNames = "usersById")
     public UserSiteFull getUserSite(Long id) {
         StringBuilder builder = GetData.INSTANCE.getDataFromServer(USERS_URL + "/" + id, GET);
         Gson g = new Gson();
         UserSiteFull result = g.fromJson(builder.toString(), UserSiteFull.class);
+        log.addLog(LocalDateTime.now(), USERS_URL + "/" + id, CrudOperations.GET.name(), "SUCCESS");
         return result;
     }
 
@@ -30,6 +37,7 @@ public class UserSiteServiceImpl implements UserSiteService {
     public UserSiteFull[] getUserSites() {
         StringBuilder builder = GetData.INSTANCE.getDataFromServer(USERS_URL, GET);
         Gson g = new Gson();
+        log.addLog(LocalDateTime.now(), USERS_URL, CrudOperations.GET.name(), "SUCCESS");
         return g.fromJson(builder.toString(), UserSiteFull[].class);
     }
 
@@ -40,7 +48,9 @@ public class UserSiteServiceImpl implements UserSiteService {
         try {
             HttpResponse<String> response = GetData.INSTANCE.addData(userSite, USERS_URL);
             result = gson.fromJson(response.body(), UserSiteFull.class);
+            log.addLog(LocalDateTime.now(), USERS_URL, CrudOperations.POST.name(), "SUCCESS");
         } catch (IOException | InterruptedException e) {
+            log.addLog(LocalDateTime.now(), USERS_URL, CrudOperations.POST.name(), "FAIL");
             throw new RuntimeException(e);
         }
         return result;
@@ -54,7 +64,6 @@ public class UserSiteServiceImpl implements UserSiteService {
         if (oldUserSite.equals(userSite)) {
             return oldUserSite;
         }
-
 
         if ((userSite.getName() != null) && (!userSite.getName().equals(oldUserSite.getName()))) {
             oldUserSite.setName(userSite.getName());
@@ -88,11 +97,13 @@ public class UserSiteServiceImpl implements UserSiteService {
             try {
                 HttpResponse<String> response = GetData.INSTANCE.patchData(oldUserSite, USERS_URL + "/" + id);
                 oldUserSite = gson.fromJson(response.body(), UserSiteFull.class);
+                log.addLog(LocalDateTime.now(), USERS_URL, CrudOperations.PATCH.name() + "/" + id, "SUCCESS");
             } catch (IOException | InterruptedException e) {
+                log.addLog(LocalDateTime.now(), USERS_URL, CrudOperations.PATCH.name() + "/" + id, "FAIL");
                 throw new RuntimeException(e);
             }
         } else {
-            System.out.println("Обновление не выполнено. Новые данные соответствуют старым.");
+            log.addLog(LocalDateTime.now(), USERS_URL, CrudOperations.PATCH.name() + "/" + id, "FAIL: Обновление не выполнено. Новые данные соответствуют старым.");
         }
         return oldUserSite;
     }
@@ -100,6 +111,7 @@ public class UserSiteServiceImpl implements UserSiteService {
     @Override
     public void deleteUserSite(Long id) {
         GetData.INSTANCE.deleteData(USERS_URL + "/" + id);
+        log.addLog(LocalDateTime.now(), USERS_URL, CrudOperations.DELETE.name() + "/" + id, "SUCCESS");
     }
 
     private void patchCompany(UserSite.Company newCompany, UserSite.Company oldCompany) {

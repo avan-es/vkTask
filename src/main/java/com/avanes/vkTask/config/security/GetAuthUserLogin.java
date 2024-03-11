@@ -11,17 +11,18 @@ import java.util.stream.Collectors;
 public enum GetAuthUserLogin {
     INSTANCE;
 
-    public Map<String, String> getAuthUserLogin() {
+    public Map<Integer, String> getAuthUserLogin() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String currentPrincipalName = authentication.getName();
         Set<String> roles = authentication.getAuthorities().stream()
                 .map(r -> r.getAuthority()).collect(Collectors.toSet());
-        HashMap<String, String> result = new HashMap<>();
+        HashMap<Integer, String> result = new HashMap<>();
         StringBuilder totalRoles = new StringBuilder();
         for (String role : roles) {
             totalRoles.append(role).append(" ");
         }
-        result.put(currentPrincipalName, totalRoles.toString().trim());
+        result.put(0, currentPrincipalName);
+        result.put(1, totalRoles.toString().trim());
         return result;
     }
 }
